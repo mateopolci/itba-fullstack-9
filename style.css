@@ -79,15 +79,6 @@ h1 {
   color: #A0522D; /* Siena Tostado */
 }
 
-/* Precio */
-.card p {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-weight: 500; /* Medium */
-  font-size: 12pt;
-  color: #87A96B; /* Verde Salvia */
-}
-
-/* Botón de detalle */
 .card a {
   display: inline-block;
   margin-top: 10px;
@@ -97,10 +88,76 @@ h1 {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: #fff;
-  background-color: #D4A437; /* Vara de Oro */
+  background-color: #D4A437; 
   padding: 8px 12px;
   border-radius: 4px;
 }
 .card a:hover {
-  background-color: #C47A6D; /* Rosa Polvoriento */
+  background-color: #C47A6D; 
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logo img {
+  width: 80px;
+  height: auto;
+}
+
+.logo span {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #6b3e26;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: #6b3e26;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #a86b4c;
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .logo img {
+    width: 80px;
+  }
+
+  .logo span {
+    font-size: 1.2rem;
+  }
 }
