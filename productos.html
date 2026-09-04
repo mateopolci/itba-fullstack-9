@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Catálogo de Productos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Catálogo de Productos</h1>
+  
+  <!-- Campo de búsqueda -->
+  <input type="text" id="buscador" placeholder="Buscar producto...">
+
+  <!-- Contenedor de tarjetas -->
+  <div id="grilla"></div>
+
+  <!-- Scripts -->
+  <script src="productos.js"></script>
+  <script>
+    const grilla = document.getElementById("grilla");
+    const buscador = document.getElementById("buscador");
+
+    function mostrarProductos(lista) {
+      grilla.innerHTML = "";
+      lista.forEach(p => {
+        grilla.innerHTML += `
+          <div class="card">
+            <img src="${p.imagen}" alt="${p.nombre}">
+            <h3>${p.nombre}</h3>
+            <a href="detalle.html?id=${p.id}">Ver detalle</a>
+          </div>
+        `;
+      });
+    }
+
+    // Inicial: mostrar todos
+    mostrarProductos(productos);
+
+    // Buscador funcional
+    buscador.addEventListener("input", e => {
+      const texto = e.target.value.toLowerCase();
+      const filtrados = productos.filter(p =>
+        p.nombre.toLowerCase().includes(texto)
+      );
+      mostrarProductos(filtrados);
+    });
+  </script>
+</body>
+</html>
