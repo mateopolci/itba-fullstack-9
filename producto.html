@@ -1,27 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalle de producto</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Detalle de producto — Mueblería Hermanos Jota.">
+  <title>Detalle de Producto — Mueblería Hermanos Jota</title>
+  <!-- [CSS]: Enlace estandarizado a style.css -->
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <header>
-        <nav aria-label="Navegación principal">
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="productos.html">Productos</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
-    
-        <a href="#" aria-label="Carrito de compras">
-            🛒 Carrito
-            <span id="contador-carrito">0</span>
-        </a>
-    
-    </header>
 
+  <header>
+    <a href="index.html" class="logo" aria-label="Mueblería Hermanos Jota — Ir al inicio">
+      <strong>Hermanos Jota</strong>
+    </a>
+
+    <nav aria-label="Navegación principal">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <a href="#carrito" class="carrito-link" aria-label="Ver carrito de compras">
+      🛒 Carrito 
+      <!-- [A11y / JS / CSS]: Envoltorio para actualización dinámica de estado y anuncio accesible mediante aria-live -->
+      <span class="contador-contenedor" aria-live="polite">
+        <span id="contador-carrito">0</span>
+      </span>
+    </a>
+  </header>
+
+  <main>
+    <!-- [JS]: Contenedor principal con data-id para enlace de datos dinámicos mediante querySelector -->
+    <!-- [CSS]: Contenedor padre para el layout Flexbox / Grid Responsive Mobile-First -->
+    <article id="detalle-producto" data-id="" aria-label="Detalle del producto">
+      
+      <!-- [CSS]: Contenedor estructural para la galería/imagen (Columna 1 en layout Flexbox desktop) -->
+      <div class="producto-galeria">
+        <img id="producto-img" src="" alt="Cargando producto...">
+      </div>
+
+      <!-- [CSS]: Contenedor estructural para información y acciones (Columna 2 en layout Flexbox desktop) -->
+      <div class="producto-info">
+        <h1 id="producto-titulo"></h1>
+        <p id="producto-precio"></p>
+        <p id="producto-descripcion"></p>
+        <!-- [UI / JS]: Botón estandarizado con clase btn-primario y data-id para el manejador de carrito -->
+        <button type="button" id="btn-agregar-carrito" class="btn-primario" data-id="">Añadir al Carrito</button>
+      </div>
+
+    </article>
+  </main>
+
+  <footer>
+    <section aria-label="Información de la empresa">
+      <p><strong>Mueblería Hermanos Jota</strong></p>
+      <p>Diseño y fabricación de muebles con más de 30 años de tradición artesanal.</p>
+      <p>Av. Belgrano 1234, CABA, Argentina | Tel: (011) 4567-8900 | <a href="mailto:info@hermanosjota.com">info@hermanosjota.com</a></p>
+    </section>
+    <p class="copyright">&copy; 2026 Mueblería Hermanos Jota. Todos los derechos reservados.</p>
+  </footer>
+
+  <script type="module" src="producto.js"></script>
 </body>
+
 </html>

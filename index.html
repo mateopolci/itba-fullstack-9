@@ -1,87 +1,64 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Mueblería Hermanos Jota — Muebles de calidad con 30 años de tradición artesanal.">
-  <title>Mueblería Hermanos Jota</title>
+  <meta name="description" content="Mueblería Hermanos Jota — Muebles de calidad con más de 30 años de tradición artesanal.">
+  <title>Mueblería Hermanos Jota — Inicio</title>
+  <!-- [CSS]: Enlace estandarizado a style.css -->
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
   <header>
-    <a href="/" aria-label="Ir al inicio — Mueblería Hermanos Jota">
+    <a href="index.html" class="logo" aria-label="Mueblería Hermanos Jota — Ir al inicio">
       <strong>Hermanos Jota</strong>
     </a>
 
     <nav aria-label="Navegación principal">
       <ul>
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#productos">Productos</a></li>
-        <li><a href="#nosotros">Nosotros</a></li>
-        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
       </ul>
     </nav>
+
+    <a href="#carrito" class="carrito-link" aria-label="Ver carrito de compras">
+      🛒 Carrito 
+      <!-- [A11y / JS / CSS]: Envoltorio para actualización dinámica de estado y anuncio accesible mediante aria-live -->
+      <span class="contador-contenedor" aria-live="polite">
+        <span id="contador-carrito">0</span>
+      </span>
+    </a>
   </header>
 
   <main>
-    <section id="inicio" aria-labelledby="titulo-principal">
-      <h1 id="titulo-principal">Mueblería Hermanos Jota</h1>
+    <section class="hero-banner" aria-labelledby="hero-titulo">
+      <h1 id="hero-titulo">Mueblería Hermanos Jota</h1>
       <p>
-        Desde hace más de <strong>30 años</strong>, Hermanos Jota fabrica muebles con dedicación,
-        materiales seleccionados y un oficio que se transmite de generación en generación.
-        Cada pieza refleja nuestra tradición familiar y el compromiso con la calidad que nos
-        distingue en cada hogar que transformamos.
+        Desde hace más de <strong>30 años</strong>, fabricamos muebles con dedicación,
+        materiales seleccionados y un oficio artesanal que se transmite de generación en generación.
+        Piezas únicas pensadas para durar toda la vida y transformar tu hogar.
       </p>
+      <a href="productos.html" class="btn-hero">Explorar Catálogo</a>
     </section>
 
-    <section id="productos" aria-labelledby="titulo-productos">
-      <h2 id="titulo-productos">Productos destacados</h2>
-
-      <article>
-        <h3>Mesa de comedor Roble</h3>
-        <p>Mesa extensible de roble macizo, ideal para reuniones familiares.</p>
-        <p>
-          <span>Comedor</span>
-          <span>Roble</span>
-          <span>Artesanal</span>
-        </p>
-      </article>
-
-      <article>
-        <h3>Sillón Córdoba</h3>
-        <p>Sillón de tres cuerpos con tapizado premium y estructura reforzada.</p>
-        <p>
-          <span>Living</span>
-          <span>Tapizado</span>
-          <span>Confort</span>
-        </p>
-      </article>
-
-      <article>
-        <h3>Biblioteca Clásica</h3>
-        <p>Estantería modular de cinco niveles con acabado en nogal.</p>
-        <p>
-          <span>Oficina</span>
-          <span>Nogal</span>
-          <span>Modular</span>
-        </p>
-      </article>
-
-      <article>
-        <h3>Cama King Premium</h3>
-        <p>Respaldo tapizado y base reforzada para máxima durabilidad.</p>
-        <p>
-          <span>Dormitorio</span>
-          <span>King</span>
-          <span>Respaldo tapizado</span>
-        </p>
-      </article>
-    </section>
+    <!-- [JS]: Contenedor dinámico donde JS inyectará las tarjetas de productos destacados -->
+    <section id="productos-destacados" data-id="" aria-label="Productos destacados"></section>
   </main>
 
   <footer>
-    <p>&copy; 2026 Mueblería Hermanos Jota. Todos los derechos reservados.</p>
+    <section aria-label="Información de la empresa">
+      <p><strong>Mueblería Hermanos Jota</strong></p>
+      <p>Diseño y fabricación de muebles con más de 30 años de tradición artesanal.</p>
+      <p>Av. Belgrano 1234, CABA, Argentina | Tel: (011) 4567-8900 | <a href="mailto:info@hermanosjota.com">info@hermanosjota.com</a></p>
+    </section>
+    <p class="copyright">&copy; 2026 Mueblería Hermanos Jota. Todos los derechos reservados.</p>
   </footer>
 
+  <script type="module" src="index.js"></script>
 </body>
+
 </html>

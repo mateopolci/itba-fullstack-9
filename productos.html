@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Catálogo completo de muebles artesanales — Mueblería Hermanos Jota.">
+  <title>Catálogo de Productos — Mueblería Hermanos Jota</title>
+  <!-- [CSS]: Enlace estandarizado a style.css -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header>
+    <a href="index.html" class="logo" aria-label="Mueblería Hermanos Jota — Ir al inicio">
+      <strong>Hermanos Jota</strong>
+    </a>
+
+    <nav aria-label="Navegación principal">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <a href="#carrito" class="carrito-link" aria-label="Ver carrito de compras">
+      🛒 Carrito 
+      <!-- [A11y / JS / CSS]: Envoltorio para actualización dinámica de estado y anuncio accesible mediante aria-live -->
+      <span class="contador-contenedor" aria-live="polite">
+        <span id="contador-carrito">0</span>
+      </span>
+    </a>
+  </header>
+
+  <main>
+    <h1>Catálogo de Productos</h1>
+
+    <section class="buscador-seccion" aria-label="Búsqueda de productos">
+      <label for="buscador">Buscar productos:</label>
+      <input type="search" id="buscador" name="buscador" placeholder="Buscar por nombre, categoría o ambiente...">
+    </section>
+
+    <!-- [JS]: Contenedor dinámico donde JS inyectará la grilla del catálogo -->
+    <section id="grilla-catalogo" data-id="" aria-label="Catálogo de productos"></section>
+  </main>
+
+  <footer>
+    <section aria-label="Información de la empresa">
+      <p><strong>Mueblería Hermanos Jota</strong></p>
+      <p>Diseño y fabricación de muebles con más de 30 años de tradición artesanal.</p>
+      <p>Av. Belgrano 1234, CABA, Argentina | Tel: (011) 4567-8900 | <a href="mailto:info@hermanosjota.com">info@hermanosjota.com</a></p>
+    </section>
+    <p class="copyright">&copy; 2026 Mueblería Hermanos Jota. Todos los derechos reservados.</p>
+  </footer>
+
+  <script type="module" src="productos.js"></script>
+</body>
+
+</html>
