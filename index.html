@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Mueblería Hermanos Jota — Muebles de calidad con más de 30 años de tradición artesanal."
+    >
+
+    <title>Mueblería Hermanos Jota</title>
+
+    <link rel="stylesheet" href="Style.css">
+</head>
+
+<body>
+
+    <header>
+
+        <a
+            href="#inicio"
+            class="logo"
+            aria-label="Ir al inicio — Mueblería Hermanos Jota"
+        >
+            <img
+                src="img/Kit de imágenes/logo.svg"
+                alt="Logo Hermanos Jota"
+            >
+            <span>Hermanos Jota</span>
+        </a>
+
+        <nav aria-label="Navegación principal">
+            <ul>
+                <li>
+                    <a href="#inicio">Inicio</a>
+                </li>
+
+                <li>
+                    <a href="#productos">Productos</a>
+                </li>
+
+                <li>
+                    <a href="#nosotros">Nosotros</a>
+                </li>
+
+                <li>
+                    <a href="#contacto">Contacto</a>
+                </li>
+            </ul>
+        </nav>
+
+        <button
+            type="button"
+            id="abrir-carrito"
+            class="carrito-link"
+            aria-label="Ver carrito de compras"
+        >
+            🛒 Carrito
+            <span
+                class="contador-contenedor"
+                aria-live="polite"
+            >
+                <span id="contador-carrito">0</span>
+            </span>
+        </button>
+
+    </header>
+
+
+    <main>
+
+        <!-- ================================
+             INICIO
+        ================================= -->
+
+        <section
+            id="inicio"
+            class="hero-banner"
+            aria-labelledby="hero-titulo"
+        >
+
+            <p class="eyebrow">
+                Tradición artesanal
+            </p>
+
+            <h1 id="hero-titulo">
+                Mueblería Hermanos Jota
+            </h1>
+
+            <p>
+                Desde hace más de <strong>30 años</strong>,
+                fabricamos muebles con dedicación,
+                materiales seleccionados y un oficio artesanal
+                que se transmite de generación en generación.
+            </p>
+
+            <a
+                href="#productos"
+                class="btn-hero"
+            >
+                Explorar catálogo
+            </a>
+
+        </section>
+
+
+        <!-- ================================
+             PRODUCTOS
+        ================================= -->
+
+        <section
+            id="productos"
+            class="productos-seccion"
+            aria-labelledby="titulo-productos"
+        >
+
+            <p class="eyebrow">
+                Nuestra colección
+            </p>
+
+            <h2 id="titulo-productos">
+                Productos
+            </h2>
+
+            <div class="buscador-seccion">
+
+                <label for="buscador">
+                    Buscar productos
+                </label>
+
+                <input
+                    type="search"
+                    id="buscador"
+                    name="buscador"
+                    placeholder="Buscar por nombre, descripción o material..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+            <div
+                id="grilla-catalogo"
+                class="grilla-productos"
+                aria-live="polite"
+            ></div>
+
+            <p
+                id="sin-resultados"
+                class="sin-resultados"
+                hidden
+            >
+                No encontramos productos que coincidan con tu búsqueda.
+            </p>
+
+        </section>
+
+
+        <!-- ================================
+             NOSOTROS
+        ================================= -->
+
+        <section
+            id="nosotros"
+            class="nosotros"
+            aria-labelledby="titulo-nosotros"
+        >
+
+            <div class="nosotros-contenido">
+
+                <p class="eyebrow">
+                    Nuestra historia
+                </p>
+
+                <h2 id="titulo-nosotros">
+                    Más de 30 años creando muebles
+                </h2>
+
+                <p>
+                    En Hermanos Jota combinamos tradición artesanal,
+                    materiales seleccionados y diseño contemporáneo
+                    para crear piezas pensadas para acompañarte
+                    durante muchos años.
+                </p>
+
+                <p>
+                    Cada mueble nace del trabajo dedicado de nuestro
+                    equipo y del compromiso con la calidad que
+                    caracteriza a nuestra familia.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================
+             CONTACTO
+        ================================= -->
+
+        <section
+            id="contacto"
+            class="contacto"
+            aria-labelledby="titulo-contacto"
+        >
+
+            <div class="contacto-intro">
+
+                <p class="eyebrow">
+                    Hermanos Jota
+                </p>
+
+                <h2 id="titulo-contacto">
+                    Contactanos
+                </h2>
+
+                <p>
+                    ¿Tenés alguna consulta sobre nuestros muebles?
+                    Escribinos y nuestro equipo se pondrá en contacto
+                    con vos.
+                </p>
+
+            </div>
+
+
+            <form
+                id="formulario-contacto"
+                novalidate
+            >
+
+                <div class="campo">
+
+                    <label for="nombre">
+                        Nombre
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nombre"
+                        name="nombre"
+                        placeholder="Tu nombre"
+                        autocomplete="name"
+                    >
+
+                    <small
+                        id="error-nombre"
+                        class="mensaje-error"
+                    ></small>
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="email">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="tu@email.com"
+                        autocomplete="email"
+                    >
+
+                    <small
+                        id="error-email"
+                        class="mensaje-error"
+                    ></small>
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="mensaje">
+                        Mensaje
+                    </label>
+
+                    <textarea
+                        id="mensaje"
+                        name="mensaje"
+                        rows="6"
+                        placeholder="Escribí tu consulta..."
+                    ></textarea>
+
+                    <small
+                        id="error-mensaje"
+                        class="mensaje-error"
+                    ></small>
+
+                </div>
+
+
+                <button type="submit">
+                    Enviar mensaje
+                </button>
+
+
+                <div
+                    id="mensaje-exito"
+                    class="mensaje-exito"
+                    role="status"
+                    aria-live="polite"
+                ></div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================================
+         CARRITO
+    ================================= -->
+
+    <aside
+        id="carrito-panel"
+        class="carrito-panel"
+        aria-labelledby="titulo-carrito"
+        hidden
+    >
+
+        <div class="carrito-contenido">
+
+            <div class="carrito-header">
+
+                <h2 id="titulo-carrito">
+                    Tu carrito
+                </h2>
+
+                <button
+                    type="button"
+                    id="cerrar-carrito"
+                    class="boton-cerrar"
+                    aria-label="Cerrar carrito"
+                >
+                    ×
+                </button>
+
+            </div>
+
+            <div
+                id="carrito-items"
+                class="carrito-items"
+            ></div>
+
+            <div class="carrito-footer">
+
+                <strong>
+                    Total:
+                    <span id="carrito-total">$0</span>
+                </strong>
+
+                <button
+                    type="button"
+                    id="vaciar-carrito"
+                >
+                    Vaciar carrito
+                </button>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================================
+         FOOTER
+    ================================= -->
+
+    <footer>
+
+        <section aria-label="Información de la empresa">
+
+            <p>
+                <strong>
+                    Mueblería Hermanos Jota
+                </strong>
+            </p>
+
+            <p>
+                Diseño y fabricación de muebles con más de
+                30 años de tradición artesanal.
+            </p>
+
+            <p>
+                Av. Belgrano 1234, CABA, Argentina |
+                Tel: (011) 4567-8900 |
+                <a href="mailto:info@hermanosjota.com">
+                    info@hermanosjota.com
+                </a>
+            </p>
+
+        </section>
+
+        <p class="copyright">
+            &copy; 2026 Mueblería Hermanos Jota.
+            Todos los derechos reservados.
+        </p>
+
+    </footer>
+
+
+    <!-- ÚNICO ARCHIVO JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
