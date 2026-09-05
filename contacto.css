@@ -1,0 +1,258 @@
+/* =========================
+   VARIABLES
+========================= */
+
+:root {
+    --siena: #A0522D;
+    --verde-salvia: #87A96B;
+    --alabastro: #F5E6D3;
+    --oro: #D4A437;
+    --rosa: #C47A6D;
+
+    --texto: #333333;
+    --blanco: #ffffff;
+    --error: #B42318;
+    --exito: #2E6B3E;
+}
+
+/* =========================
+   RESET BÁSICO
+========================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Inter, Arial, sans-serif;
+    background-color: var(--alabastro);
+    color: var(--texto);
+    line-height: 1.6;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    padding: 1.5rem;
+    background-color: var(--blanco);
+    border-bottom: 3px solid var(--siena);
+}
+
+.logo {
+    color: var(--siena);
+    text-decoration: none;
+    font-family: Georgia, serif;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+
+    list-style: none;
+}
+
+.nav-list a {
+    color: var(--texto);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.nav-list a:hover {
+    color: var(--siena);
+}
+
+.carrito {
+    color: var(--texto);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#contador-carrito {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    min-width: 1.5rem;
+    height: 1.5rem;
+    margin-left: 0.25rem;
+
+    border-radius: 50%;
+    background-color: var(--oro);
+    color: var(--blanco);
+
+    font-size: 0.8rem;
+}
+
+/* =========================
+   CONTACTO
+========================= */
+
+.contacto {
+    width: min(100% - 2rem, 700px);
+    margin: 0 auto;
+    padding: 3rem 0;
+}
+
+.contacto-intro {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.eyebrow {
+    margin-bottom: 0.5rem;
+    color: var(--verde-salvia);
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+h1 {
+    margin-bottom: 1rem;
+
+    color: var(--siena);
+    font-family: Georgia, serif;
+    font-size: 2.4rem;
+}
+
+.contacto-intro p:last-child {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* =========================
+   FORMULARIO
+========================= */
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    padding: 2rem;
+
+    background-color: var(--blanco);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+label {
+    font-weight: bold;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 0.9rem;
+
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+
+    font: inherit;
+}
+
+input:focus,
+textarea:focus {
+    outline: 2px solid var(--verde-salvia);
+    border-color: var(--verde-salvia);
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* =========================
+   MENSAJES
+========================= */
+
+.mensaje-error {
+    min-height: 1.25rem;
+
+    color: var(--error);
+    font-size: 0.9rem;
+}
+
+.mensaje-exito {
+    min-height: 1.5rem;
+
+    color: var(--exito);
+    font-weight: bold;
+    text-align: center;
+}
+
+/* =========================
+   BOTÓN
+========================= */
+
+button {
+    padding: 1rem;
+
+    border: none;
+    border-radius: 6px;
+
+    background-color: var(--siena);
+    color: var(--blanco);
+
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #7f3f23;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 2rem;
+
+    background-color: var(--siena);
+    color: var(--blanco);
+
+    text-align: center;
+}
+
+/* =========================
+   TABLET / DESKTOP
+========================= */
+
+@media (min-width: 768px) {
+
+    .header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .contacto {
+        padding: 5rem 0;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+}
