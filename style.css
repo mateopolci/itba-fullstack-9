@@ -647,11 +647,11 @@ button[type="submit"]:hover {
     z-index: 3000;
     max-width: min(360px, calc(100% - 32px));
     padding: 14px 18px;
-    border-left: 4px solid var(--oro);
+    border-left: 4px solid var(--siena);
     border-radius: 6px;
-    background-color: var(--siena);
+    background-color: var(--oro);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-    color: var(--blanco);
+    color: var(--texto);
     font-weight: bold;
     opacity: 0;
     pointer-events: none;
