@@ -98,8 +98,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const sinResultados =
         document.getElementById("sin-resultados");
 
+    const loaderCatalogo =
+        document.getElementById("loader-catalogo");
+
     const detalleProducto =
         document.getElementById("detalle-producto");
+
+    let catalogoCargado = false;
 
 
     // ========================================
@@ -342,6 +347,37 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
+    function simularCargaCatalogo() {
+        return new Promise((resolve) => {
+            setTimeout(() => resolve(productos), 1500);
+        });
+    }
+
+
+    async function cargarCatalogo() {
+
+        if (!grillaCatalogo) {
+            return;
+        }
+
+        if (loaderCatalogo) {
+            loaderCatalogo.hidden = false;
+        }
+
+        grillaCatalogo.hidden = true;
+
+        const catalogo = await simularCargaCatalogo();
+
+        catalogoCargado = true;
+        renderizarProductos(catalogo);
+        grillaCatalogo.hidden = false;
+
+        if (loaderCatalogo) {
+            loaderCatalogo.hidden = true;
+        }
+    }
+
+
     function renderizarDetalle() {
 
         if (!detalleProducto) {
@@ -400,7 +436,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function buscarProductos() {
 
-        if (!buscador) {
+        if (!buscador || !catalogoCargado) {
             return;
         }
 
@@ -644,7 +680,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     actualizarContadorCarrito();
 
-    renderizarProductos(productos);
+    cargarCatalogo();
 
     renderizarDetalle();
 

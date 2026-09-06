@@ -232,6 +232,38 @@ nav a:hover {
     font-weight: bold;
 }
 
+.loader-catalogo {
+    display: flex;
+    min-height: 220px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    color: var(--siena);
+    font-weight: bold;
+    text-align: center;
+}
+
+.loader-catalogo[hidden] {
+    display: none;
+}
+
+.loader-icon {
+    width: 42px;
+    height: 42px;
+    border: 4px solid var(--alabastro);
+    border-top-color: var(--oro);
+    border-right-color: var(--verde-salvia);
+    border-radius: 50%;
+    animation: girar-loader 0.9s linear infinite;
+}
+
+@keyframes girar-loader {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 #buscador {
     width: 100%;
     padding: 12px;
