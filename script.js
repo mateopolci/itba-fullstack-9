@@ -111,9 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // CARRITO
     // ========================================
 
-    let carrito = Number(
-        localStorage.getItem("carrito")
-    ) || 0;
+    let carrito = cargarCarrito();
 
     const contadorCarrito =
         document.getElementById("contador-carrito");
@@ -136,12 +134,51 @@ document.addEventListener("DOMContentLoaded", () => {
     const vaciarCarrito =
         document.getElementById("vaciar-carrito");
 
+    const confirmarCompra =
+        document.getElementById("confirmar-compra");
+
+    let notificacionTemporizador;
+
+
+    function mostrarNotificacion(mensaje) {
+        let notificacion = document.getElementById("notificacion");
+
+        if (!notificacion) {
+            notificacion = document.createElement("div");
+            notificacion.id = "notificacion";
+            notificacion.className = "notificacion";
+            notificacion.setAttribute("role", "status");
+            notificacion.setAttribute("aria-live", "polite");
+            document.body.appendChild(notificacion);
+        }
+
+        clearTimeout(notificacionTemporizador);
+        notificacion.textContent = mensaje;
+        notificacion.classList.add("notificacion-visible");
+
+        notificacionTemporizador = setTimeout(() => {
+            notificacion.classList.remove("notificacion-visible");
+        }, 3000);
+    }
+
+
+    function cargarCarrito() {
+        try {
+            const carritoGuardado = JSON.parse(
+                localStorage.getItem("carrito") || "[]"
+            );
+
+            return Array.isArray(carritoGuardado)
+                ? carritoGuardado
+                : [];
+        } catch (error) {
+            return [];
+        }
+    }
+
 
     function guardarCarrito() {
-        localStorage.setItem(
-            "carrito",
-            String(carrito)
-        );
+        localStorage.setItem("carrito", JSON.stringify(carrito));
     }
 
 
@@ -151,7 +188,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        contadorCarrito.textContent = carrito;
+        contadorCarrito.textContent = carrito.length;
     }
 
 
@@ -179,12 +216,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function agregarAlCarrito(producto) {
 
-        carrito += 1;
+        carrito.push({ ...producto });
 
         guardarCarrito();
         actualizarContadorCarrito();
 
-        alert(
+        mostrarNotificacion(
             `${producto.nombre} fue agregado al carrito.`
         );
     }
@@ -198,7 +235,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         carritoItems.innerHTML = "";
 
-        if (carrito === 0) {
+        if (carrito.length === 0) {
 
             carritoItems.innerHTML =
                 "<p>Tu carrito está vacío.</p>";
@@ -210,44 +247,28 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        const item = document.createElement("div");
-
-        item.className = "carrito-item";
-
-        item.innerHTML = `
-            <h3>Productos en el carrito</h3>
-            <p>Cantidad de productos: ${carrito}</p>
-            <button type="button" id="quitar-producto">
-                Quitar uno
-            </button>
-        `;
-
-        carritoItems.appendChild(item);
-
         if (carritoTotal) {
             carritoTotal.textContent =
-                `${carrito} producto${carrito === 1 ? "" : "s"}`;
+                `${carrito.length} producto${carrito.length === 1 ? "" : "s"}`;
         }
 
-        const quitarProducto =
-            document.getElementById("quitar-producto");
+        carrito.forEach((producto, indice) => {
+            const item = document.createElement("article");
 
-        if (quitarProducto) {
+            item.className = "carrito-item";
+            item.innerHTML = `
+                <img src="${producto.imagen}" alt="${producto.nombre}">
+                <div>
+                    <h3>${producto.nombre}</h3>
+                    <p>${producto.materiales}</p>
+                    <button type="button" data-indice-producto="${indice}">
+                        Quitar producto
+                    </button>
+                </div>
+            `;
 
-            quitarProducto.addEventListener(
-                "click",
-                () => {
-
-                    if (carrito > 0) {
-                        carrito -= 1;
-                    }
-
-                    guardarCarrito();
-                    actualizarContadorCarrito();
-                    renderizarCarrito();
-                }
-            );
-        }
+            carritoItems.appendChild(item);
+        });
     }
 
 
@@ -283,17 +304,64 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    if (vaciarCarrito) {
+    if (carritoItems) {
 
-        vaciarCarrito.addEventListener(
+        carritoItems.addEventListener(
             "click",
-            () => {
+            (event) => {
+                const botonQuitar = event.target.closest(
+                    "[data-indice-producto]"
+                );
 
-                carrito = 0;
+                if (!botonQuitar) {
+                    return;
+                }
+
+                carrito.splice(
+                    Number(botonQuitar.dataset.indiceProducto),
+                    1
+                );
 
                 guardarCarrito();
                 actualizarContadorCarrito();
                 renderizarCarrito();
+            }
+        );
+    }
+
+
+    if (vaciarCarrito) {
+
+        vaciarCarrito.addEventListener(
+            "click",
+            vaciarCarritoCompleto
+        );
+    }
+
+
+    function vaciarCarritoCompleto() {
+        carrito = [];
+
+        guardarCarrito();
+        actualizarContadorCarrito();
+        renderizarCarrito();
+    }
+
+
+    if (confirmarCompra) {
+
+        confirmarCompra.addEventListener(
+            "click",
+            () => {
+                if (carrito.length === 0) {
+                    mostrarNotificacion(
+                        "El carrito está vacio, añada productos para realizar una compra"
+                    );
+                    return;
+                }
+
+                mostrarNotificacion("Gracias por su compra");
+                vaciarCarritoCompleto();
             }
         );
     }

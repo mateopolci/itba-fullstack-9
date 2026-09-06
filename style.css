@@ -399,7 +399,8 @@ nav a:hover {
     margin-bottom: 20px;
 }
 
-#agregar-detalle {
+#agregar-detalle,
+#confirmar-compra {
     padding: 12px 18px;
     border: none;
     border-radius: 4px;
@@ -409,7 +410,8 @@ nav a:hover {
     cursor: pointer;
 }
 
-#agregar-detalle:hover {
+#agregar-detalle:hover,
+#confirmar-compra:hover {
     background-color: var(--rosa);
 }
 
@@ -564,6 +566,9 @@ button[type="submit"]:hover {
 }
 
 .boton-cerrar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 40px;
     height: 40px;
     padding: 0;
@@ -571,7 +576,7 @@ button[type="submit"]:hover {
     border-radius: 50%;
     background-color: var(--siena);
     color: var(--blanco);
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     line-height: 1;
     cursor: pointer;
 }
@@ -583,8 +588,23 @@ button[type="submit"]:hover {
 }
 
 .carrito-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
     padding: 15px;
     border-bottom: 1px solid var(--borde);
+}
+
+.carrito-item img {
+    width: 72px;
+    height: 72px;
+    flex-shrink: 0;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.carrito-item > div {
+    min-width: 0;
 }
 
 .carrito-item h3 {
@@ -618,6 +638,32 @@ button[type="submit"]:hover {
     background-color: var(--siena);
     color: var(--blanco);
     cursor: pointer;
+}
+
+.notificacion {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 3000;
+    max-width: min(360px, calc(100% - 32px));
+    padding: 14px 18px;
+    border-left: 4px solid var(--oro);
+    border-radius: 6px;
+    background-color: var(--siena);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    color: var(--blanco);
+    font-weight: bold;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(12px);
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}
+
+.notificacion-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* ========================================
