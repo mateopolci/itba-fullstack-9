@@ -19,3 +19,21 @@ Además, los usuarios pueden agregar productos al carrito de compras, visualizar
 - HTML5
 - CSS3
 - JavaScript
+
+## Visualización
+
+El proyecto está desplegado en GitHub Pages:
+
+https://mateopolci.github.io/itba-fullstack-9/index.html
+
+## Ejecución local
+
+Desde la carpeta raíz del proyecto, se puede abrir `index.html` utilizando la extensión Live Server de Visual Studio Code.
+
+Como alternativa, si no se cuenta con Live Server, es necesario tener Node.js instalado y ejecutar:
+
+```bash
+npx serve .
+```
+
+Luego, abrir en el navegador la dirección que indique el comando, normalmente `http://localhost:3000`.
