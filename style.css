@@ -8,24 +8,22 @@
     box-sizing: border-box;
 }
 
-
 /* ========================================
    VARIABLES DE MARCA
 ======================================== */
 
 :root {
-    --siena: #A0522D;
-    --verde-salvia: #87A96B;
-    --alabastro: #F5E6D3;
-    --oro: #D4A437;
-    --rosa: #C47A6D;
+    --siena: #a0522d;
+    --verde-salvia: #87a96b;
+    --alabastro: #f5e6d3;
+    --oro: #d4a437;
+    --rosa: #c47a6d;
     --texto: #333333;
-    --blanco: #FFFFFF;
-    --error: #B42318;
-    --exito: #2E6B3E;
-    --borde: #DDDDDD;
+    --blanco: #ffffff;
+    --error: #b42318;
+    --exito: #2e6b3e;
+    --borde: #dddddd;
 }
-
 
 /* ========================================
    GENERAL
@@ -36,7 +34,7 @@ html {
 }
 
 body {
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: "Inter", system-ui, sans-serif;
     background-color: var(--alabastro);
     color: var(--texto);
     font-size: 12pt;
@@ -59,14 +57,13 @@ textarea {
     font: inherit;
 }
 
-
 /* ========================================
    TÍTULOS
 ======================================== */
 
 h1,
 h2 {
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: "Playfair Display", Georgia, serif;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -85,9 +82,8 @@ h2 {
 }
 
 h3 {
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: "Playfair Display", Georgia, serif;
 }
-
 
 /* ========================================
    HEADER
@@ -142,7 +138,6 @@ nav a:hover {
     color: var(--rosa);
 }
 
-
 /* ========================================
    CARRITO HEADER
 ======================================== */
@@ -168,7 +163,6 @@ nav a:hover {
     color: var(--blanco);
     font-size: 0.8rem;
 }
-
 
 /* ========================================
    HERO
@@ -206,14 +200,15 @@ nav a:hover {
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition:
+        background-color 0.3s ease,
+        transform 0.2s ease;
 }
 
 .btn-hero:hover {
     background-color: var(--rosa);
     transform: translateY(-2px);
 }
-
 
 /* ========================================
    PRODUCTOS
@@ -266,7 +261,9 @@ nav a:hover {
     padding: 15px;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s, border-color 0.2s;
+    transition:
+        transform 0.2s,
+        border-color 0.2s;
 }
 
 .card:hover {
@@ -300,7 +297,7 @@ nav a:hover {
     font-weight: bold;
 }
 
-.card button {
+.card .ver-detalle {
     display: inline-block;
     align-self: center;
     margin-top: auto;
@@ -317,7 +314,7 @@ nav a:hover {
     transition: background-color 0.2s ease;
 }
 
-.card button:hover {
+.card .ver-detalle:hover {
     background-color: var(--rosa);
 }
 
@@ -327,6 +324,62 @@ nav a:hover {
     font-weight: bold;
 }
 
+/* ========================================
+   DETALLE DE PRODUCTO
+======================================== */
+
+.detalle-producto {
+    width: min(100% - 2rem, 1000px);
+    margin: 0 auto;
+    padding: 60px 0 80px;
+}
+
+.volver-catalogo {
+    display: inline-block;
+    margin-bottom: 25px;
+    color: var(--siena);
+    font-weight: bold;
+}
+
+.detalle-producto-contenido {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 50px;
+    padding: 30px;
+    background-color: var(--blanco);
+    border: 2px solid var(--oro);
+    border-radius: 8px;
+}
+
+.detalle-producto-contenido img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.detalle-producto-contenido h1 {
+    text-align: left;
+}
+
+.detalle-producto-contenido p:not(.eyebrow) {
+    margin-bottom: 20px;
+}
+
+#agregar-detalle {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--oro);
+    color: var(--blanco);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#agregar-detalle:hover {
+    background-color: var(--rosa);
+}
 
 /* ========================================
    NOSOTROS
@@ -346,7 +399,6 @@ nav a:hover {
 .nosotros-contenido p:not(.eyebrow) {
     margin-bottom: 20px;
 }
-
 
 /* ========================================
    CONTACTO
@@ -421,7 +473,6 @@ nav a:hover {
     text-align: center;
 }
 
-
 /* ========================================
    BOTONES
 ======================================== */
@@ -442,7 +493,6 @@ button[type="submit"] {
 button[type="submit"]:hover {
     background-color: #7f3f23;
 }
-
 
 /* ========================================
    PANEL DEL CARRITO
@@ -538,7 +588,6 @@ button[type="submit"]:hover {
     cursor: pointer;
 }
 
-
 /* ========================================
    FOOTER
 ======================================== */
@@ -559,13 +608,11 @@ footer a {
     color: var(--blanco);
 }
 
-
 /* ========================================
    RESPONSIVE
 ======================================== */
 
 @media (max-width: 768px) {
-
     body {
         padding: 0;
     }
@@ -610,4 +657,13 @@ footer a {
         font-size: 1.2rem;
     }
 
+    .detalle-producto-contenido {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 20px;
+    }
+
+    .detalle-producto-contenido h1 {
+        text-align: center;
+    }
 }

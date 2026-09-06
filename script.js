@@ -98,6 +98,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const sinResultados =
         document.getElementById("sin-resultados");
 
+    const detalleProducto =
+        document.getElementById("detalle-producto");
+
 
     // ========================================
     // CARRITO
@@ -326,56 +329,68 @@ document.addEventListener("DOMContentLoaded", () => {
                     ${producto.nombre}
                 </h3>
 
-                <p>
-                    ${producto.descripcion}
-                </p>
-
-                <p>
-                    <strong>
-                        Materiales:
-                    </strong>
-                    ${producto.materiales}
-                </p>
-
-                <button
-                    type="button"
-                    data-producto-id="${producto.id}"
+                <a
+                    href="producto.html?id=${producto.id}"
+                    class="ver-detalle"
                 >
-                    Agregar al carrito
-                </button>
+                    Ver detalle
+                </a>
             `;
 
             grillaCatalogo.appendChild(card);
         });
+    }
 
 
-        const botones =
-            grillaCatalogo.querySelectorAll(
-                "[data-producto-id]"
-            );
+    function renderizarDetalle() {
 
-        botones.forEach((boton) => {
+        if (!detalleProducto) {
+            return;
+        }
 
-            boton.addEventListener(
-                "click",
-                () => {
+        const id = Number(
+            new URLSearchParams(window.location.search).get("id")
+        );
 
-                    const id =
-                        Number(
-                            boton.dataset.productoId
-                        );
+        const producto =
+            productos.find((item) => item.id === id);
 
-                    const producto =
-                        productos.find(
-                            (item) => item.id === id
-                        );
+        if (!producto) {
+            detalleProducto.innerHTML = `
+                <p class="eyebrow">Producto no encontrado</p>
+                <h1>No encontramos ese producto</h1>
+                <a href="productos.html" class="btn-hero">Volver al catálogo</a>
+            `;
 
-                    if (producto) {
-                        agregarAlCarrito(producto);
-                    }
-                }
-            );
-        });
+            return;
+        }
+
+        document.title =
+            `${producto.nombre} | Hermanos Jota`;
+
+        detalleProducto.innerHTML = `
+            <a href="productos.html" class="volver-catalogo">
+                ← Volver al catálogo
+            </a>
+            <div class="detalle-producto-contenido">
+                <img src="${producto.imagen}" alt="${producto.nombre}">
+                <div>
+                    <p class="eyebrow">Colección Hermanos Jota</p>
+                    <h1>${producto.nombre}</h1>
+                    <p>${producto.descripcion}</p>
+                    <p><strong>Materiales:</strong> ${producto.materiales}</p>
+                    <button type="button" id="agregar-detalle">Agregar al carrito</button>
+                </div>
+            </div>
+        `;
+
+        const agregarDetalle =
+            document.getElementById("agregar-detalle");
+
+        agregarDetalle.addEventListener(
+            "click",
+            () => agregarAlCarrito(producto)
+        );
     }
 
 
@@ -630,5 +645,7 @@ document.addEventListener("DOMContentLoaded", () => {
     actualizarContadorCarrito();
 
     renderizarProductos(productos);
+
+    renderizarDetalle();
 
 });

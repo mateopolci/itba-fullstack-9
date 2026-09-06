@@ -5,9 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta
             name="description"
-            content="Mueblería Hermanos Jota — Muebles de calidad con más de 30 años de tradición artesanal."
+            content="Contactate con Mueblería Hermanos Jota."
         />
-        <title>Hermanos Jota | Mueblería artesanal</title>
+        <title>Contacto | Hermanos Jota</title>
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
@@ -16,10 +16,10 @@
                 href="index.html"
                 class="logo"
                 aria-label="Ir al inicio — Mueblería Hermanos Jota"
+                ><img src="images/logo.svg" alt="Logo Hermanos Jota" /><span
+                    >Hermanos Jota</span
+                ></a
             >
-                <img src="images/logo.svg" alt="Logo Hermanos Jota" />
-                <span>Hermanos Jota</span>
-            </a>
             <nav aria-label="Navegación principal">
                 <ul>
                     <li><a href="index.html">Inicio</a></li>
@@ -40,46 +40,68 @@
                 >
             </button>
         </header>
-
         <main>
             <section
-                id="inicio"
-                class="hero-banner"
-                aria-labelledby="hero-titulo"
+                id="contacto"
+                class="contacto"
+                aria-labelledby="titulo-contacto"
             >
-                <p class="eyebrow">Tradición artesanal</p>
-                <h1 id="hero-titulo">Mueblería Hermanos Jota</h1>
-                <p>
-                    Desde hace más de <strong>30 años</strong>, fabricamos
-                    muebles con dedicación, materiales seleccionados y un oficio
-                    artesanal que se transmite de generación en generación.
-                </p>
-                <a href="productos.html" class="btn-hero">Explorar catálogo</a>
-            </section>
-
-            <section
-                id="nosotros"
-                class="nosotros"
-                aria-labelledby="titulo-nosotros"
-            >
-                <div class="nosotros-contenido">
-                    <p class="eyebrow">Nuestra historia</p>
-                    <h2 id="titulo-nosotros">Más de 30 años creando muebles</h2>
+                <div class="contacto-intro">
+                    <p class="eyebrow">Hermanos Jota</p>
+                    <h1 id="titulo-contacto">Contactanos</h1>
                     <p>
-                        En Hermanos Jota combinamos tradición artesanal,
-                        materiales seleccionados y diseño contemporáneo para
-                        crear piezas pensadas para acompañarte durante muchos
-                        años.
-                    </p>
-                    <p>
-                        Cada mueble nace del trabajo dedicado de nuestro equipo
-                        y del compromiso con la calidad que caracteriza a
-                        nuestra familia.
+                        ¿Tenés alguna consulta sobre nuestros muebles?
+                        Escribinos y nuestro equipo se pondrá en contacto con
+                        vos.
                     </p>
                 </div>
+                <form id="formulario-contacto" novalidate>
+                    <div class="campo">
+                        <label for="nombre">Nombre</label
+                        ><input
+                            type="text"
+                            id="nombre"
+                            name="nombre"
+                            placeholder="Tu nombre"
+                            autocomplete="name"
+                        /><small
+                            id="error-nombre"
+                            class="mensaje-error"
+                        ></small>
+                    </div>
+                    <div class="campo">
+                        <label for="email">Email</label
+                        ><input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="tu@email.com"
+                            autocomplete="email"
+                        /><small id="error-email" class="mensaje-error"></small>
+                    </div>
+                    <div class="campo">
+                        <label for="mensaje">Mensaje</label
+                        ><textarea
+                            id="mensaje"
+                            name="mensaje"
+                            rows="6"
+                            placeholder="Escribí tu consulta..."
+                        ></textarea
+                        ><small
+                            id="error-mensaje"
+                            class="mensaje-error"
+                        ></small>
+                    </div>
+                    <button type="submit">Enviar mensaje</button>
+                    <div
+                        id="mensaje-exito"
+                        class="mensaje-exito"
+                        role="status"
+                        aria-live="polite"
+                    ></div>
+                </form>
             </section>
         </main>
-
         <aside
             id="carrito-panel"
             class="carrito-panel"
@@ -107,7 +129,6 @@
                 </div>
             </div>
         </aside>
-
         <footer>
             <section aria-label="Información de la empresa">
                 <p><strong>Mueblería Hermanos Jota</strong></p>
@@ -129,4 +150,13 @@
         </footer>
         <script src="script.js?v=3"></script>
     </body>
+</html>
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body></body>
 </html>
