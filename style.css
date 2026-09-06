@@ -258,6 +258,8 @@ nav a:hover {
 }
 
 .card {
+    display: flex;
+    flex-direction: column;
     background-color: var(--blanco);
     border: 2px solid var(--oro);
     border-radius: 8px;
@@ -300,7 +302,8 @@ nav a:hover {
 
 .card button {
     display: inline-block;
-    margin-top: 10px;
+    align-self: center;
+    margin-top: auto;
     padding: 8px 12px;
     border: none;
     text-decoration: none;
