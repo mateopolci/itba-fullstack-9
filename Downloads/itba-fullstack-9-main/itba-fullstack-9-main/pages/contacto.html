@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Contactate con Mueblería Hermanos Jota."
+        />
+        <title>Contacto | Hermanos Jota</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <header>
+            <a
+                href="../index.html"
+                class="logo"
+                aria-label="Ir al inicio — Mueblería Hermanos Jota"
+                ><img
+                    src="../assets/icons/logo.svg"
+                    alt="Logo Hermanos Jota"
+                /><span>Hermanos Jota</span></a
+            >
+            <nav aria-label="Navegación principal">
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="../index.html#nosotros">Nosotros</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <button
+                type="button"
+                id="abrir-carrito"
+                class="carrito-link"
+                aria-label="Ver carrito de compras"
+            >
+                🛒 Carrito
+                <span class="contador-contenedor" aria-live="polite"
+                    ><span id="contador-carrito">0</span></span
+                >
+            </button>
+        </header>
+        <main>
+            <section
+                id="contacto"
+                class="contacto"
+                aria-labelledby="titulo-contacto"
+            >
+                <div class="contacto-intro">
+                    <p class="eyebrow">Hermanos Jota</p>
+                    <h1 id="titulo-contacto">Contactanos</h1>
+                    <p>
+                        ¿Tenés alguna consulta sobre nuestros muebles?
+                        Escribinos y nuestro equipo se pondrá en contacto con
+                        vos.
+                    </p>
+                </div>
+                <form id="formulario-contacto" novalidate>
+                    <div class="campo">
+                        <label for="nombre">Nombre</label
+                        ><input
+                            type="text"
+                            id="nombre"
+                            name="nombre"
+                            placeholder="Tu nombre"
+                            autocomplete="name"
+                        /><small
+                            id="error-nombre"
+                            class="mensaje-error"
+                        ></small>
+                    </div>
+                    <div class="campo">
+                        <label for="email">Email</label
+                        ><input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="tu@email.com"
+                            autocomplete="email"
+                        /><small id="error-email" class="mensaje-error"></small>
+                    </div>
+                    <div class="campo">
+                        <label for="mensaje">Mensaje</label
+                        ><textarea
+                            id="mensaje"
+                            name="mensaje"
+                            rows="6"
+                            placeholder="Escribí tu consulta..."
+                        ></textarea
+                        ><small
+                            id="error-mensaje"
+                            class="mensaje-error"
+                        ></small>
+                    </div>
+                    <button type="submit">Enviar mensaje</button>
+                    <div
+                        id="mensaje-exito"
+                        class="mensaje-exito"
+                        role="status"
+                        aria-live="polite"
+                    ></div>
+                </form>
+            </section>
+        </main>
+        <aside
+            id="carrito-panel"
+            class="carrito-panel"
+            aria-labelledby="titulo-carrito"
+            hidden
+        >
+            <div class="carrito-contenido">
+                <div class="carrito-header">
+                    <h2 id="titulo-carrito">Tu carrito</h2>
+                    <button
+                        type="button"
+                        id="cerrar-carrito"
+                        class="boton-cerrar"
+                        aria-label="Cerrar carrito"
+                    >
+                        ✕
+                    </button>
+                </div>
+                <div id="carrito-items" class="carrito-items"></div>
+                <div class="carrito-footer">
+                    <strong>Total: <span id="carrito-total">$0</span></strong
+                    ><button type="button" id="vaciar-carrito">
+                        Vaciar carrito</button
+                    ><button type="button" id="confirmar-compra">
+                        Confirmar compra
+                    </button>
+                </div>
+            </div>
+        </aside>
+        <footer>
+            <section aria-label="Información de la empresa">
+                <p><strong>Mueblería Hermanos Jota</strong></p>
+                <p>
+                    Diseño y fabricación de muebles con más de 30 años de
+                    tradición artesanal.
+                </p>
+                <p>
+                    Av. Belgrano 1234, CABA, Argentina | Tel: (011) 4567-8900 |
+                    <a href="mailto:info@hermanosjota.com"
+                        >info@hermanosjota.com</a
+                    >
+                </p>
+            </section>
+            <p class="copyright">
+                &copy; 2026 Mueblería Hermanos Jota. Todos los derechos
+                reservados.
+            </p>
+        </footer>
+        <script src="../js/main.js?v=3"></script>
+    </body>
+</html>
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body></body>
+</html>
