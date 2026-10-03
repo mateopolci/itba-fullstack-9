@@ -7,6 +7,9 @@ const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const cors = require('cors');
+
+app.use(cors()); // Permitir peticiones desde el frontend
 
 // Middleware para interpretar JSON en el cuerpo de las peticiones
 app.use(express.json());
